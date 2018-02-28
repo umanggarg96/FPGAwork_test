@@ -12,7 +12,9 @@ module BCDIncrementor(Output,Input);
 		part3=Input[11:8];
 		
 		part1=part1+4'd1;
-		
+		//c1 = 0;
+		//c2 = 0;
+		//c3 = 0;
 		if(part1 > 4'd9)
 		begin
 			c1=1'b1;
@@ -30,6 +32,8 @@ module BCDIncrementor(Output,Input);
 				c2=1'b1;
 				part2=part2+4'd6;
 			end
+			else
+				c2 = 0;
 		end
 		
 		else
@@ -43,10 +47,12 @@ module BCDIncrementor(Output,Input);
 				c3=1'b1;
 				part3=part3+4'd6;
 			end
+			else
+				c2 = 0;
 		end
 		
 		else
-			c2=1'b0;
+			c3=1'b0;
 			
 		Output={part3,part2,part1};
 	end
